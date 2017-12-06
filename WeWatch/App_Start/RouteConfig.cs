@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
+
+namespace WeWatch
+{
+    public class RouteConfig
+    {
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapMvcAttributeRoutes();  // Enabling attribute routing for more efficient routing
+
+
+            /*
+            routes.MapRoute(
+                "MoviesByReleaseDate",
+                "movies/released/{year}/{month}",
+                new { controller = "Movies", action = "MoviesByReleaseDate"},
+                new { year = @"\d{4}", month = @"\d{2}"});                         // Regular Expression constraints for the dates to be entered*/
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+        }
+    }
+}
