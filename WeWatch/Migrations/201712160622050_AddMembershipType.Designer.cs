@@ -13,7 +13,7 @@ namespace WeWatch.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201712151907291_AddMembershipType"; }
+            get { return "201712160622050_AddMembershipType"; }
         }
         
         string IMigrationMetadata.Source
