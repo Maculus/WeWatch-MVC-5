@@ -20,6 +20,8 @@ namespace WeWatch.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Customer> Customers { get; set; }             // Added to create a table for customers
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
