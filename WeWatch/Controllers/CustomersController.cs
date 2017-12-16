@@ -11,7 +11,7 @@ namespace WeWatch.Controllers
     public class CustomersController : Controller
     {
 
-        // Declare a context for my database
+        // Declare Dbset context variable to access database
         private ApplicationDbContext _context;     
 
 

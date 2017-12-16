@@ -22,6 +22,8 @@ namespace WeWatch.Models
     {
         public DbSet<Customer> Customers { get; set; }             // Added to create a table for customers
 
+        public DbSet<Movie> Movies { get; set; }                   // Added to create a table for movies
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
