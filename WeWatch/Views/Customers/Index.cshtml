@@ -16,7 +16,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Customers</h2>
+<h2>Customers</h2><br/>
+<p>
+    @Html.ActionLink("Add Customer", "new", "Customers", null, new { @class = "btn btn-info active" })
+</p>
+
+
 @if (!Model.Any())
 {
     <p>We don't have any customers yet.</p>

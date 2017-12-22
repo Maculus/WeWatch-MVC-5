@@ -24,7 +24,9 @@ namespace WeWatch.Models
 
         public DbSet<Movie> Movies { get; set; }                    // Added to create a table for movies
 
-        public DbSet<MembershipType> MembershipTypes { get; set; }  // Added to create a table for membership types
+        public DbSet<MembershipType> MembershipTypes { get; set; }  // Added so list of membership types can be retrieved from db
+
+        public DbSet<Genre> Genres { get; set; }                    // Added so list of genres can be retrived from db
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

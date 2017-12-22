@@ -23,13 +23,14 @@ namespace WeWatch.Controllers
         }
 
 
+        // To dispose of the Db context properly
         protected override void Dispose(bool disposing)
         {
            _context.Dispose();
         }
 
 
-        // Save a new customer
+        // Get form to save a new customer
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -43,6 +44,7 @@ namespace WeWatch.Controllers
         }
 
 
+        // POST: Updates or saves new record to Db
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
@@ -67,6 +69,24 @@ namespace WeWatch.Controllers
         }
 
 
+        // GET: Customer/Edit/id
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return HttpNotFound();
+
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View("CustomerForm", viewModel);
+        }
+
+
         // GET: Customer
         public ViewResult Index()
         {
@@ -86,22 +106,6 @@ namespace WeWatch.Controllers
 
             return View(customer);
         }
-
-
-        public ActionResult Edit(int id)
-        {
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
-
-            if (customer == null)
-                return HttpNotFound();
-
-            var viewModel = new CustomerFormViewModel
-            {
-                Customer = customer,
-                MembershipTypes = _context.MembershipTypes.ToList()
-            };
-
-            return View("CustomerForm", viewModel);
-        }
+        
     }
 }
