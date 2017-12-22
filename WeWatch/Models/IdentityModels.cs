@@ -20,9 +20,11 @@ namespace WeWatch.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Customer> Customers { get; set; }             // Added to create a table for customers
+        public DbSet<Customer> Customers { get; set; }              // Added to create a table for customers
 
-        public DbSet<Movie> Movies { get; set; }                   // Added to create a table for movies
+        public DbSet<Movie> Movies { get; set; }                    // Added to create a table for movies
+
+        public DbSet<MembershipType> MembershipTypes { get; set; }  // Added to create a table for membership types
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
